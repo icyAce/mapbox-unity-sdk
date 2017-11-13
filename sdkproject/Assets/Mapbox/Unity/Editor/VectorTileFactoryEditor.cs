@@ -45,12 +45,14 @@ namespace Mapbox.Editor
 			{
 				var ind = i;
 				EditorGUILayout.BeginHorizontal();
-
 				EditorGUILayout.BeginVertical();
 				GUILayout.Space(5);
 				EditorGUILayout.BeginHorizontal();
 				if (_factory.Visualizers[i] != null)
 				{
+					_factory.Visualizers[i].Active = EditorGUILayout.Toggle(_factory.Visualizers[i].Active, GUILayout.MaxWidth(40));
+					if (!_factory.Visualizers[i].Active)
+						GUI.enabled = false;
 					_factory.Visualizers[i].Key = EditorGUILayout.TextField(_factory.Visualizers[i].Key, GUILayout.MaxWidth(100));
 				}
 				//facs.GetArrayElementAtIndex(ind).objectReferenceValue = EditorGUILayout.ObjectField(facs.GetArrayElementAtIndex(i).objectReferenceValue, typeof(LayerVisualizerBase)) as ScriptableObject;
@@ -58,6 +60,8 @@ namespace Mapbox.Editor
 					EditorGUILayout.TextField("null");
 				else
 					EditorGUILayout.ObjectField(_factory.Visualizers[i], typeof(LayerVisualizerBase), false);
+
+				
 				EditorGUILayout.EndHorizontal();
 				EditorGUILayout.EndVertical();
 
@@ -69,6 +73,8 @@ namespace Mapbox.Editor
 				{
 					facs.DeleteArrayElementAtIndex(ind);
 				}
+				if (!_factory.Visualizers[i].Active)
+					GUI.enabled = true;
 				EditorGUILayout.EndHorizontal();
 			}
 

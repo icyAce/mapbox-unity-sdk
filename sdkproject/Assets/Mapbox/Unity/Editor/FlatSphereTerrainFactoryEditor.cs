@@ -39,8 +39,8 @@
 			EditorGUILayout.Space();
 			radius_Prop.floatValue = EditorGUILayout.FloatField("Earth Radius", radius_Prop.floatValue);
 			EditorGUILayout.BeginHorizontal();
-			EditorGUILayout.PropertyField(sample_Prop, new GUIContent("Resolution"));
-			EditorGUILayout.LabelField("x  " + sample_Prop.intValue);
+				EditorGUILayout.PropertyField(sample_Prop, new GUIContent("Resolution"));
+				EditorGUILayout.LabelField("x  " + sample_Prop.intValue);
 			EditorGUILayout.EndHorizontal();
 			EditorGUILayout.Space();
 			EditorGUILayout.PropertyField(material_Prop, new GUIContent("Material"));

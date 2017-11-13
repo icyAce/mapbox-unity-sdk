@@ -60,10 +60,9 @@ namespace Mapbox.Editor
 			GUI.enabled = false;
 			script = EditorGUILayout.ObjectField("Script", script, typeof(MonoScript), false) as MonoScript;
 			GUI.enabled = true;
-			EditorGUILayout.Space();
-			EditorGUILayout.Space();
+			//EditorGUILayout.Space();
+			//EditorGUILayout.Space();
 			EditorGUILayout.PropertyField(mapIdType_Prop, new GUIContent("Map Type"));
-			EditorGUILayout.Space();
 			var st = (MapImageType)mapIdType_Prop.enumValueIndex;
 			EditorGUI.indentLevel++;
 
@@ -93,20 +92,20 @@ namespace Mapbox.Editor
 
 			}
 			EditorGUI.indentLevel--;
-			EditorGUILayout.Space();
-			EditorGUILayout.Space();
-			EditorGUILayout.LabelField("Raster Tile Texture Settings");
+			//EditorGUILayout.Space();
+			//EditorGUILayout.Space();
+			EditorGUILayout.LabelField("Raster Tile Texture Settings", Styling.labelHeader);
 			EditorGUI.indentLevel++;
 
 			EditorGUILayout.PropertyField(useCompression_Prop, new GUIContent("Use Compression"));
-			if (useCompression_Prop.boolValue)
-			{
-				EditorGUILayout.HelpBox("Texture will be compressed. This will reduce image quality and lead to longer initialization times but save memory.", MessageType.Info);
-			}
-			else
-			{
-				EditorGUILayout.HelpBox("Use compression to save memory.", MessageType.Warning);
-			}
+			//if (useCompression_Prop.boolValue)
+			//{
+			//	EditorGUILayout.HelpBox("Texture will be compressed. This will reduce image quality and lead to longer initialization times but save memory.", MessageType.Info);
+			//}
+			//else
+			//{
+			//	EditorGUILayout.HelpBox("Use compression to save memory.", MessageType.Warning);
+			//}
 
 			EditorGUILayout.PropertyField(useMipMap_Prop, new GUIContent("Create Mip Maps"));
 			if (useMipMap_Prop.boolValue)

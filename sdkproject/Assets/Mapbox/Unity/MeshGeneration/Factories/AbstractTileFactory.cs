@@ -8,6 +8,11 @@
 
 	public abstract class AbstractTileFactory : ScriptableObject
     {
+		[SerializeField]
+		public bool Expended = true;
+		[SerializeField]
+		public bool Active = true;
+
 		protected IFileSource _fileSource;
         
 		public ModuleState State { get; private set; }

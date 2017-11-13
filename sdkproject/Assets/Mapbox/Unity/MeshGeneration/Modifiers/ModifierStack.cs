@@ -151,6 +151,7 @@ namespace Mapbox.Unity.MeshGeneration.Modifiers
 			_tempVectorEntity.Mesh.subMeshCount = meshData.Triangles.Count;
 			_tempVectorEntity.Mesh.SetVertices(meshData.Vertices);
 			_tempVectorEntity.Mesh.SetNormals(meshData.Normals);
+			_tempVectorEntity.Mesh.RecalculateTangents();
 
 			_counter = meshData.Triangles.Count;
 			for (int i = 0; i < _counter; i++)

@@ -34,10 +34,11 @@
 		{
 			serializedObject.Update();
 
+			GUI.enabled = false;
 			script = EditorGUILayout.ObjectField("Script", script, typeof(MonoScript), false) as MonoScript;
-			EditorGUILayout.Space();
+			GUI.enabled = true;
 			EditorGUILayout.PropertyField(material_Prop, new GUIContent("Material"));
-			EditorGUILayout.Space();
+			//EditorGUILayout.Space();
 			addWall_Prop.boolValue = EditorGUILayout.Toggle("Add Walls", addWall_Prop.boolValue);
 			if (addWall_Prop.boolValue)
 			{
@@ -46,9 +47,7 @@
 				EditorGUILayout.PropertyField(wallMaterial_Prop, new GUIContent("Wall Material"));
 				EditorGUI.indentLevel--;
 			}
-			EditorGUILayout.Space();
 			collider_Prop.boolValue = EditorGUILayout.Toggle("Add Collider", collider_Prop.boolValue);
-			EditorGUILayout.Space();
 			addLayer_Prop.boolValue = EditorGUILayout.Toggle("Add To Layer", addLayer_Prop.boolValue);
 			if (addLayer_Prop.boolValue)
 			{

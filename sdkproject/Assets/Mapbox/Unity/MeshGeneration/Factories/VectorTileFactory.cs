@@ -84,7 +84,7 @@ namespace Mapbox.Unity.MeshGeneration.Factories
 					tile.VectorDataState = TilePropertyState.Error;
 					return;
 				}
-
+				var t = vectorTile.GeoJson;
 				if (_cachedData.ContainsKey(tile))
 				{
 					_cachedData[tile] = vectorTile;

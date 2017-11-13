@@ -53,12 +53,16 @@
 				EditorGUILayout.BeginVertical();
 				GUILayout.Space(5);
 				facs.GetArrayElementAtIndex(ind).objectReferenceValue = EditorGUILayout.ObjectField(facs.GetArrayElementAtIndex(i).objectReferenceValue, typeof(AbstractTileFactory), false) as ScriptableObject;
-
-				
+								
 				EditorGUILayout.EndVertical();
 				if (GUILayout.Button(NodeBasedEditor.magnifierTexture, (GUIStyle)"minibuttonleft", GUILayout.Width(30)))
 				{
-					ScriptableCreatorWindow.Open(typeof(AbstractTileFactory), facs, ind);
+					ScriptableCreatorWindow.Open(typeof(AbstractTileFactory), facs, ind, (asset) =>
+					{
+						facs.GetArrayElementAtIndex(ind).objectReferenceValue = asset;
+						facs.serializedObject.ApplyModifiedProperties();
+						_editors[ind] = CreateEditor(facs.GetArrayElementAtIndex(ind).objectReferenceValue);
+					});
 				}
 				if (GUILayout.Button(new GUIContent("-"), (GUIStyle)"minibuttonright", GUILayout.Width(30), GUILayout.Height(22)))
 				{
